@@ -1,0 +1,29 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixins.scss' as *;
+
+.gameboard-container {
+  @include flex-center;
+}
+
+.gameboard {
+  display: grid;
+  border: 6px solid $primary-color;
+  background-color: $green-300;
+}
+
+.grid-cell {
+  border: 1px solid $green-200;
+
+  &.snake {
+    border-radius: 8px;
+    background-color: $secondary-color;
+  }
+
+  &.food {
+    background-image: url('../../../assets/svg/cherry-monotone.svg');
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}

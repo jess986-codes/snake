@@ -1,0 +1,20 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.form-group {
+  @include form-group;
+}
+
+input {
+  @include input-base;
+
+  &::placeholder {
+    color: $green-100;
+  }
+}
+
+.error-message {
+  color: red;
+  font-size: $font-size-sm;
+  margin-top: $spacing-xs;
+}

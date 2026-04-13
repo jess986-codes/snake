@@ -1,0 +1,108 @@
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font: 16px/145% $sans;
+  height: 100vh;
+  height: -webkit-fill-available;
+  font-family: $sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $green-400;
+  color: $primary-color;
+  line-height: 1.2;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-speed;
+
+  &:hover {
+    color: $green-200;
+  }
+}
+
+button {
+  font-family: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: $spacing-md;
+  font-family: inherit;
+  font-weight: $font-weight-normal;
+  line-height: 1.2;
+  color: inherit;
+}
+
+h1 {
+  font-size: $font-size-2xl;
+}
+
+h2 {
+  font-size: $font-size-xl;
+}
+
+h3 {
+  font-size: $font-size-lg;
+}
+
+h4 {
+  font-size: $font-size-base;
+}
+
+p {
+  margin-bottom: $spacing-md;
+  font-size: $font-size-xs;
+  color: $secondary-color;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.main-content {
+  @include flex-column-center;
+  padding: 0 $spacing-xl;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.right-aligned {
+  width: min-content;
+  text-align: right;
+}

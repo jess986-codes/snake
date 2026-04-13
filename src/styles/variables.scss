@@ -1,0 +1,70 @@
+@font-face {
+  font-family: '04B_30';
+  src: url('../assets/fonts/04B_30.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Colors
+$primary-color: #77e6b7;
+$secondary-color: #d1b1e7;
+
+// Neutral colors
+$white: #ffffff;
+$black: #000000;
+
+$green-100: #489172;
+$green-200: #294d29;
+$green-300: #143a2a;
+$green-400: #0a1a12;
+
+$purple-100: #9010c2;
+
+$pink-100: #e24467;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+// Typography
+$font-size-xs: 1.125rem;
+$font-size-sm: 1.25rem;
+$font-size-base: 1.375rem;
+$font-size-lg: 1.75rem;
+$font-size-xl: 2.125rem;
+$font-size-2xl: 2.5rem;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$sans: '04B_30', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-full: 50%;
+
+// Transitions
+$transition-speed: 0.3s ease;
+$transition-fast: 0.15s ease;
+$transition-slow: 0.5s ease;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+// Breakpoints
+$breakpoint-mobile: 576px;
+$breakpoint-tablet-portrait: 768px;
+$breakpoint-tablet-landscape: 1024px;
+$breakpoint-desktop: 1440px;

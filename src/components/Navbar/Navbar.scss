@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+nav {
+  @include absolute-position;
+  width: 100%;
+  padding: 16px;
+
+  svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+    color: $primary-color;
+  }
+
+  .navbar {
+    @include flex-between;
+    .navbar-menu {
+      @include flex-center;
+      gap: 8px;
+    }
+
+    .play-button {
+      padding: 8px;
+      border-radius: 8px;
+      background-color: $secondary-color;
+      color: $white;
+    }
+  }
+}

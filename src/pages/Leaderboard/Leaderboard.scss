@@ -1,0 +1,92 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.leaderboard-container {
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 40px auto auto;
+  padding: 12px;
+  align-items: center;
+  gap: 12px;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  span {
+    position: relative;
+    background-color: $green-300;
+    padding: 10px;
+    border-radius: 8px;
+
+    &.rank {
+      font-weight: bold;
+      color: $primary-color;
+
+      &-1 {
+        color: gold;
+      }
+
+      &-2 {
+        color: silver;
+      }
+
+      &-3 {
+        color: #cd7f32;
+      }
+    }
+
+    &.player-name {
+      margin-left: 6px;
+      padding-left: 38px;
+      color: $secondary-color;
+    }
+
+    &.highscore {
+    }
+  }
+
+  img {
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.leaderboard-header {
+  font-weight: bold;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+
+  span {
+    $grid-border: 2px;
+    padding: 0 12px 0 0;
+    border-radius: 0;
+    background-color: transparent;
+
+    &:not(:last-child) {
+      border-right: $grid-border solid $primary-color;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: calc(-1 * $grid-border);
+      pointer-events: none;
+      background:
+        linear-gradient($green-400, $green-400) 0 calc(100% / $grid-border)
+          $grid-border no-repeat,
+        linear-gradient($green-400, $green-400) 100% calc(100% / $grid-border)
+          $grid-border no-repeat;
+    }
+  }
+}

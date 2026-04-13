@@ -1,0 +1,151 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.gameboard-container {
+  @include flex-center;
+  position: relative;
+}
+
+.snake-game {
+  position: relative;
+  margin: 0 auto;
+}
+
+.game-state {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+/* Score */
+#score-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2px;
+}
+
+#score-tracker svg {
+  width: 32px;
+  height: 32px;
+}
+
+.score,
+.speed {
+  font-size: 1.25rem;
+  color: $secondary-color;
+
+  @media (min-width: $breakpoint-tablet-portrait) {
+    font-size: 1.5rem;
+  }
+}
+
+.gameboard {
+  display: grid;
+  border: 6px solid $primary-color;
+  background-color: $green-300;
+}
+
+.grid-cell {
+  border: 1px solid $green-200;
+
+  &.snake {
+    border-radius: 8px;
+    background-color: $secondary-color;
+  }
+
+  &.food {
+    background-image: url('../../assets/svg/cherry-monotone.svg');
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}
+
+/* Restart Screen */
+#restart-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 15px;
+  background-color: rgba(42, 53, 45, 0.911);
+
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  .result {
+    margin-bottom: 32px;
+    font-size: 1.875rem;
+    color: $pink-100;
+
+    @media (min-width: $breakpoint-tablet-portrait) {
+      font-size: 2.125rem;
+    }
+  }
+
+  #restart {
+    width: 38px;
+    height: 38px;
+    border: 3px solid $secondary-color;
+    border-radius: 25%;
+    font-family: $sans;
+    color: $secondary-color;
+    transition:
+      background-color 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      color 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    @media (min-width: $breakpoint-tablet-portrait) {
+      width: 64px;
+      height: 64px;
+    }
+
+    &:hover {
+      background-color: $secondary-color;
+      color: $purple-100;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// Theme
+.theme {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 32px;
+}
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: $primary-color;
+
+  &::after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    background-color: $primary-color;
+    mask-image: url('../../assets/svg/chevron-down.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    pointer-events: none;
+  }
+
+  .text {
+    @media (min-width: $breakpoint-tablet-portrait) {
+      font-size: 1.125rem;
+    }
+  }
+}
