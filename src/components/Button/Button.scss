@@ -24,6 +24,17 @@
     @include button-secondary;
   }
 
+  &.btn-icon {
+    @include button-icon;
+    @include flex-center;
+    gap: 12px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
   // Sizes
   &.btn-small {
     padding: $spacing-xs $spacing-sm;

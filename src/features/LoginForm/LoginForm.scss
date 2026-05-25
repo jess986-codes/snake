@@ -1,6 +1,26 @@
 @use '../../styles/variables.scss' as *;
 @use '../../styles/mixins.scss' as *;
 
-.login-form {
+.login-form,
+.registration-form {
+  @include flex-column-center;
   margin-top: 38px;
+
+  button {
+    margin-bottom: 32px;
+  }
+}
+
+.form-group {
+  width: 100%;
+}
+
+.action-links {
+  @include flex-between;
+  gap: 12px;
+  color: $green-200;
+
+  a {
+    color: $secondary-color;
+  }
 }

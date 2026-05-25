@@ -4,6 +4,7 @@ import { CherryIcon } from '../../components/icons/CherryIcon';
 import { ReplayIcon } from '../../components/icons/ReplayIcon';
 import { ArrowKeysPad } from './ArrowKeysPad/ArrowsKeysPad';
 import './SnakeGameComponent.scss';
+import { submitScore } from '../../services/api';
 
 export const SnakeGameComponent = () => {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -30,7 +31,8 @@ export const SnakeGameComponent = () => {
         restartScreenRef.current,
         resultRef.current,
         speedRef.current,
-        restartBtnRef.current
+        restartBtnRef.current,
+        saveScore
       );
     }
 
@@ -44,6 +46,10 @@ export const SnakeGameComponent = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  const saveScore = (score: number) => {
+    submitScore(score);
+  };
 
   const handleArrowKey = (key: string) => {
     gameRef.current?.handleKeyPress(key);

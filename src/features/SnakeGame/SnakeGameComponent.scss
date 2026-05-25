@@ -50,6 +50,10 @@
 .grid-cell {
   border: 1px solid $green-200;
 
+  &.snake,
+  &.food {
+    border: none;
+  }
   &.snake {
     border-radius: 8px;
     background-color: $secondary-color;

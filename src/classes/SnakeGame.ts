@@ -24,13 +24,14 @@ export class SnakeGame {
   fruitPosition = Math.floor(225 / 2);
   snakePosition: number[] = [168, 169, 170, 171];
   snakeLength = this.snakePosition.length;
-  score = 0;
+  score: number = 0;
   stepsTaken = 0;
   startTime = performance.now();
   speed = 150;
   multiplier = 1;
   inputs: string[] = [];
   lastKeyPressed = '';
+  saveScore = (score: number) => {};
 
   constructor(
     grid: HTMLElement,
@@ -38,7 +39,8 @@ export class SnakeGame {
     restartScreenElem: HTMLElement,
     resultElem: HTMLElement,
     speedElem: HTMLElement,
-    restartBtn: HTMLElement
+    restartBtn: HTMLElement,
+    saveScore: (score: number) => void
   ) {
     this.grid = grid;
     this.scoreElem = scoreElem;
@@ -46,6 +48,7 @@ export class SnakeGame {
     this.resultElem = resultElem;
     this.speedElem = speedElem;
     this.restartBtn = restartBtn;
+    this.saveScore = saveScore;
 
     this.generateGrid(15, 15);
     this.render();
@@ -160,7 +163,6 @@ export class SnakeGame {
 
     if (this.lastKeyPressed === 'left') {
       nextPosition = currentHead - 1;
-      console.log(nextPosition % 15);
       if (nextPosition % 15 === 14) {
         this.isRunning = false;
         this.showRestartScreen();
@@ -254,6 +256,7 @@ export class SnakeGame {
   showRestartScreen() {
     this.resultElem.textContent = String(this.score);
     this.restartScreenElem.classList.remove('d-none');
+    this.saveScore(this.score);
   }
 
   restartGame() {

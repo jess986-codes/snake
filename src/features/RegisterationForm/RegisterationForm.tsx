@@ -1,15 +1,15 @@
 import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
-import { signIn, signInWithGoogle } from '../../services/auth';
-import './LoginForm.scss';
+import { signUp, signInWithGoogle } from '../../services/auth';
+import './RegisterationForm.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { getTopScores } from '../../services/api';
 import { Link } from 'react-router';
 import { GoogleIcon } from '../../components/icons/GoogleIcon';
 
-export function LoginForm() {
+export function RegisterationForm() {
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export function LoginForm() {
     setError(null);
     setLoading(true);
 
-    const { error } = await signIn(email, password);
+    const { error } = await signUp(email, password, username);
 
     if (error) {
       setError(error.message);
@@ -35,7 +35,14 @@ export function LoginForm() {
   };
 
   return (
-    <div className="login-form">
+    <div className="registration-form">
+      <Input
+        placeholder="username"
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        error={error}
+      ></Input>
       <Input
         placeholder="email"
         type="text"
@@ -56,7 +63,7 @@ export function LoginForm() {
         onClick={handleSubmit}
         disabled={loading}
       >
-        {loading ? 'Logging in...' : 'Log In'}
+        {loading ? 'Registering...' : 'Register'}
       </Button>
       <Button
         variant="icon"
@@ -65,12 +72,11 @@ export function LoginForm() {
         disabled={loading}
       >
         <GoogleIcon />
-        Sign in with Google
+        Sign up with Google
       </Button>
       <div className="action-links">
-        <Link to="/">Forgot Password</Link>
-        <span className="action-link-separator">|</span>
-        <Link to="/register">Create Account</Link>
+        Already have an account?
+        <Link to="/login">Login</Link>
       </div>
     </div>
   );

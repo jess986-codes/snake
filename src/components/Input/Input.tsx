@@ -3,7 +3,7 @@ import './Input.scss';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
-  error?: string;
+  error?: string | null;
 }
 
 export function Input({
@@ -17,9 +17,8 @@ export function Input({
       {/* {label && <label htmlFor="{props.id">{label}</label>} */}
       <input
         className={`input ${className}`}
-        {...props}
-        type="text"
         placeholder={placeholder}
+        {...props}
       />
       {error && <span className="error-message">{error}</span>}
     </div>
